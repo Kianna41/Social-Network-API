@@ -42,7 +42,8 @@ module.exports = {
       {
         _id: req.params.userId,
       },
-      { $addToSet: { friends: req.body } }
+      { $addToSet: { friends: req.params.friendId } },
+      { new: true }
     )
       .then((user) => res.json(user))
       .catch((err) => {
